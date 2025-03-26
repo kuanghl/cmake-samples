@@ -202,8 +202,6 @@ int rsa_pkcs1v15_sha256_decrypt(char *msg, size_t msg_len,
         goto exit;
     }
 
-
-
     // 解密
     ret = mbedtls_pk_decrypt(&pk, en_in, en_len, msg, &olen, msg_len,
                              mbedtls_ctr_drbg_random, &ctr_drbg);
@@ -235,8 +233,8 @@ static void test_rsa_pkcs1_gen(void)
 }
 
 // 公共变量用于存放加密后的数据
-char en_buf[1024] = {0};
-size_t olen = 0;
+char gen_buf[1024] = {0};
+size_t golen = 0;
 
 static void test_rsa_pkcs1_encrypt(void)
 {
@@ -254,7 +252,7 @@ static void test_rsa_pkcs1_encrypt(void)
     char *msg = "A message for signing";
 
     ret = rsa_pkcs1v15_sha256_encrypt((const unsigned char *)msg, strlen(msg), pub_key, 
-                                      en_buf, sizeof(en_buf), &olen);
+                                      gen_buf, sizeof(gen_buf), &golen);
 
     printf("rsa_pkcs1v15_sha256_encrypt ret=%d\r\n", ret);
 }
@@ -281,7 +279,7 @@ static void test_rsa_pkcs1_decrypt(void)
 
     char msg[256] = {0};
 
-    ret = rsa_pkcs1v15_sha256_decrypt((char *)msg, sizeof(msg), private_key, en_buf, olen);
+    ret = rsa_pkcs1v15_sha256_decrypt((char *)msg, sizeof(msg), private_key, gen_buf, golen);
 
     printf("rsa_pkcs1v15_sha256_decrypt ret=%d\r\n", ret);
 

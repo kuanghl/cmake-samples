@@ -34,7 +34,7 @@ int main(void)
 
     // 1. 初始化rsa上下文
     mbedtls_rsa_init(&rsa);
-    // mbedtls_rsa_set_padding();
+    // mbedtls_rsa_set_padding(); MBEDTLS_RSA_PKCS_V21
     mbedtls_mpi_init(&N); 
     mbedtls_mpi_init(&P); 
     mbedtls_mpi_init(&Q);
