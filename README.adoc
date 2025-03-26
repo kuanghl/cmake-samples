@@ -22,8 +22,7 @@ This branch works with the CMake version 3.5 onwards.
 
 * For examples that use CMake version 2.x see the branch link:https://github.com/ttroy50/cmake-examples/tree/v2-style-includes[v2-style-includes].
 * For examples that use CMake version 3.0 see the branch link:https://github.com/ttroy50/cmake-examples/tree/v3.0-minimum[v3.0-minimum]
-
-image:https://travis-ci.org/ttroy50/cmake-examples.svg?branch=master["Build Status", link="https://travis-ci.org/ttroy50/cmake-examples"]
+* https://travis-ci.org/ttroy50/cmake-examples[cmake-examples repository]
 
 # Requirements
 
