@@ -55,6 +55,9 @@ openssl rsa -in rsa_private_pkcs1_2048.pem  -out rsa_public_pkcs1_2048.pem -pubo
 openssl pkcs12 -in your_certificate.pfx -nocerts -nodes -out private_key.pem
 # .pfx证书提取公钥
 openssl pkcs12 -in your_certificate.pfx -nokeys -out public_key.pem
+openssl x509 -in XX.cer -pubkey  -noout > XX.pem
+# .pfx证书提取秘钥对
+openssl pkcs12 -in acp_test_sign.pfx -nocerts -nodes -out acp_test_sign.key
 # 解析秘钥对中的N/E/D/P/Q/DP/DQ/QP参数
 openssl asn1parse -in private_key.pem
 openssl asn1parse -in public_key.pem
