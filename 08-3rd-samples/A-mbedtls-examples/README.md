@@ -8,7 +8,7 @@
     |Encryption|Public key|Private key|
     |Signature|Private key|Public key|
 
-3. mbedtls RSA中的N/E/D/P/Q/DP/DQ/QP参数,公钥由E/N组成,私钥由N/E/D/P/Q/DP/DQ/QP组成;
+3. mbedtls RSA中的N/E/D/P/Q/DP/DQ/QP参数,公钥由E/N组成,私钥由N/D为核心,E/P/Q/DP/DQ/QP用于加速解密操作或增强算法的安全性;
     - N（Modulus）：模数，是两个大素数P和Q的乘积。N的长度决定了RSA算法的安全性。
     - E（Public Exponent）：公钥指数，通常为65537（0x10001）。E用于加密数据，是公钥的一部分。
     - D（Private Exponent）：私钥指数，用于解密数据或生成数字签名。
@@ -89,11 +89,17 @@ make -j8
 
 #### reference.
 
-- [mbedtls sign for 2.15.6](https://blog.csdn.net/anjiyufei/article/details/135355292)
-- [mbedtls sign for 3.5.2](https://blog.csdn.net/mickey2007/article/details/143663298)
-- [RSA/DSA/ECDSA sign and verify](https://www.codeleading.com/article/41492545289/)
-- [mbedtls samples](https://github.com/iotwuxi/iot_security.git)
-- [mbedtls x509](https://blog.51cto.com/u_13640625/4905282)
-- [mbedtls stm32](https://blog.csdn.net/duapple/article/details/127928082)
-- [mbedtls tiny guide](https://github.com/Mbed-TLS/mbedtls/tree/development/configs)
-- [mbedtls PKCS#**](https://www.cnblogs.com/SevensNight/p/18766180)
+- [mbedtls sign for 2.15.6](https://blog.csdn.net/anjiyufei/article/details/135355292): mbedTLS 2.16 RSA签名和验签移植。
+- [RSA/DSA/ECDSA sign and verify](https://www.codeleading.com/article/41492545289/): 数字签名RSA、DSA、ECDSA。
+- [mbedtls rsa](https://hive.blog/python/@yjcps/mbedtls-rsa): 使用mbedtls生成RSA签名和验签, 对比openssl。
+- [mbedtls samples](https://github.com/iotwuxi/iot_security.git): 密码技术与物联网安全——mbedtls开发实战代码示例。
+- [mbedtls x509](https://blog.51cto.com/u_13640625/4905282): 数字证书及X.509证书标准。
+- [mbedtls stm32](https://blog.csdn.net/duapple/article/details/127928082): STM32 Bootloader开发记录3固件签名校验。
+- [mbedtls test](https://gitee.com/wangjunhao98/mbedtls_test): 基于mbedtls的rsa验签签名和加密解密，精简库。
+- [mbedtls tiny guide](https://github.com/Mbed-TLS/mbedtls/tree/development/configs): mbebtls精简官方指导。
+- [mbedtls PKCS#**](https://www.cnblogs.com/SevensNight/p/18766180): 加密算法之PKCS填充。
+- [mbedtls N/E/D/P/Q/DP/DQ/QP](https://www.cnblogs.com/sunchukun/p/13690308.html): e n d p q dQ dp invQ八个参数求解参考。
+- [ED25519 and RSA](https://blog.csdn.net/orange160/article/details/142856412): ED25519和RSA对比。
+- [crypto-condor multi-algo](https://quarkslab.github.io/crypto-condor/devel/index.html): crypto-condor python库及多种算法引用的标准文档。
+- [Windows lib](https://blog.csdn.net/pureman_mega/article/details/119857480): windows内核官方使用的加密库。
+- [libops](https://github.com/open-quantum-safe/liboqs.git): 用于原型制作和量子密码实验的C库。
